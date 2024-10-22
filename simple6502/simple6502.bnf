@@ -1,0 +1,39 @@
+File ::= ImportDivision? DataDivision? VariableDivision? ProcedureDivision?
+
+ImportDivision ::= IMPORTS ImportStatement (',' ImportStatement)*
+
+ImportStatement ::= IDENTIFIER
+
+DataDivision ::= DATA ConstantStatement (',' ConstantStatement)*
+
+ConstantStatement ::= CONSTIDENTIFIER '=' ConstValue
+
+ConstValue ::= STRING
+             | NUMBER
+             | BOOL
+
+VariableDivision ::= VARS VariableDeclarationStatement (',' VariableDeclarationStatement)*
+
+VariablesDeclarationStatement ::= IDENTIFIER Type
+
+Type ::= BUILTINTYPE ('[' NUMBER ']')? ; Brackets are for defining array types.
+
+ProcedureDivision ::= PROCEDURES Procedure*
+
+Procedure ::= PROCEDURE IDENTIFIER ('(' ARGS ')')? (Statement '.')* END '.'
+
+Statement ::= ; TBD
+
+
+IMPORTS = "IMPORTS"
+DATA = "DATA"
+VARS = "VARS"
+PROCEDURES = "PROCEDURES"
+PROCEDURE = "PROCEDURE"
+END = "END"
+CONSTIDENTIFIER = /[A-Z][a-zA-Z0-9_]*/
+IDENTIFIER = /[a-z][a-zA-Z0-9_]*/
+STRING = /".*"/
+NUMBER = /[0-9]+/
+BOOL = "TRUE" | "FALSE"
+

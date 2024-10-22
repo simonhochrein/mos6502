@@ -1,0 +1,10 @@
+.{ .name = "asm", .version = "0.1.0", .dependencies = .{
+    .mos6502 = .{
+            .url = ".\\mos6502\\",
+            .hash = "1220a6345ea9b07632979819911ac23f1144ef84c85dbe239b3cd50881b8208fc529",
+        },
+}, .paths = .{
+    "build.zig",
+    "build.zig.zon",
+    "asm/src",
+} }
